@@ -39,7 +39,7 @@ app.get("/api/scrape", async (req, res) => {
     }
 
     // Extract the image source from the "src" attribute of the <img> tag within the <a> tag
-    const imageSrc = $photoLink.find("img").attr("src");
+    const imageSrc = $photoLink.find("img").attr("src").slice(2);
 
     if (!imageSrc) {
       return res.status(404).json({ error: "Image source not found" });
