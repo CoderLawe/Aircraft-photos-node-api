@@ -2,8 +2,13 @@ const express = require("express");
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-const app = express();
 const port = process.env.PORT || 3001;
+
+const cors = require("cors");
+const app = express();
+
+// Allow requests from any origin
+app.use(cors());
 
 // Define an endpoint for the API
 app.get("/api/scrape", async (req, res) => {
